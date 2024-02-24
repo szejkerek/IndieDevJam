@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TheTool : Singleton<TheTool>
+public class TheTool : MonoBehaviour
 {
     public static Action OnDeath;
 
@@ -16,9 +16,8 @@ public class TheTool : Singleton<TheTool>
     int currentHealth;
     private Power currentPower; 
 
-    protected override void Awake()
+     void Awake()
     {
-        base.Awake();
         maxHealth = possiblePowers.Count;
         currentHealth = maxHealth;
 

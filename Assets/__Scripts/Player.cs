@@ -6,7 +6,8 @@ using UnityEngine;
 public class Player : Singleton<Player>
 {
     [SerializeField] Camera playerCamera;
-
+    public TheTool TheTool => theTool;
+    [SerializeField] TheTool theTool;
 
     public Vector3 GetLookRotation()
     {
@@ -24,4 +25,10 @@ public class Player : Singleton<Player>
     {
         Debug.DrawLine(playerCamera.transform.position, GetLookRotation());
     }
+
+    public void SpawnToolInHand() 
+    {
+        TheTool.gameObject.SetActive(true);
+    }
+
 }

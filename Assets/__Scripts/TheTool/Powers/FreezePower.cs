@@ -8,7 +8,7 @@ public class FreezePower : Power
     private float radius = 10f;
     public override void UsePower()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(TheTool.Instance.transform.position, radius);
+        Collider[] hitColliders = Physics.OverlapSphere(Player.Instance.transform.position, radius);
         foreach (var hitCollider in hitColliders)
         {
             if(hitCollider.gameObject.GetComponent<Rigidbody>() != null)

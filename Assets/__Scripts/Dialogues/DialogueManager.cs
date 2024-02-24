@@ -12,6 +12,10 @@ public class DialogueManager : Singleton<DialogueManager>
     [SerializeField] private DialogueContainer madLines;
 
     bool dialogueIsBlocked = false;
+    private void Start()
+    {
+        dialogueText.text = string.Empty;
+    }
     public void Play(DialogueLineSO dialogueToPlay)
     {
         if(dialogueIsBlocked)

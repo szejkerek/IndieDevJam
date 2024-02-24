@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        cam = Camera.main;
+        cam = GetComponentInChildren<Camera>();
     }
 
     void Update()

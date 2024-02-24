@@ -1538,6 +1538,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 725682596880208770, guid: abf8c8dc3f8d2e042b34c802772d346e, type: 3}
+      propertyPath: jumpForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 725682596880208770, guid: abf8c8dc3f8d2e042b34c802772d346e, type: 3}
+      propertyPath: moveSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 725682596880208770, guid: abf8c8dc3f8d2e042b34c802772d346e, type: 3}
       propertyPath: walkable.m_Bits
       value: 64
       objectReference: {fileID: 0}
@@ -1592,6 +1600,14 @@ PrefabInstance:
     - target: {fileID: 7159522669692636452, guid: abf8c8dc3f8d2e042b34c802772d346e, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7776562149089021593, guid: abf8c8dc3f8d2e042b34c802772d346e, type: 3}
+      propertyPath: sensitivityX
+      value: 420
+      objectReference: {fileID: 0}
+    - target: {fileID: 7776562149089021593, guid: abf8c8dc3f8d2e042b34c802772d346e, type: 3}
+      propertyPath: sensitivityY
+      value: 420
       objectReference: {fileID: 0}
     - target: {fileID: 7995093909159794878, guid: abf8c8dc3f8d2e042b34c802772d346e, type: 3}
       propertyPath: possiblePowers.Array.data[0]

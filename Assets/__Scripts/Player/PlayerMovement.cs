@@ -41,15 +41,18 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
-        Vector2 cameraMovement = new Vector2(mouseDelta.x *camLeftRightSpeed,
-    mouseDelta.y * camUpDownSpeed);
+        Vector2 cameraMovement = new Vector2(mouseDelta.x *camLeftRightSpeed, mouseDelta.y * camUpDownSpeed);
 
 
-        cam.transform.rotation = Quaternion.Euler(
-            (cam.transform.rotation.eulerAngles.x - cameraMovement.y),
+        Vector3 temp = new Vector3((cam.transform.rotation.eulerAngles.x - cameraMovement.y),
             cam.transform.rotation.eulerAngles.y + cameraMovement.x,
             0);
 
+        if (temp.x > 50f && temp.x < 90f) temp.x = 50f;
+        else if (temp.x > 270 && temp.x < 310) temp.x = 310f;
+
+        cam.transform.rotation = Quaternion.Euler(temp);
+        
 
         /*cam.transform.rotation = Quaternion.Euler(
             (cam.transform.rotation.x - cameraMovement.y) > 45 ? 45 : 

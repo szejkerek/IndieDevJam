@@ -13,7 +13,7 @@ public class Player : Singleton<Player>
     private void Start()
     {
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public Vector3 GetLookRotation()

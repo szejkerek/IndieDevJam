@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PushBeamPower : IPower
+[CreateAssetMenu(fileName = "PushBeamPower", menuName = "Power/PushBeamPower")]
+public class PushBeamPower : Power
 {
-    public void UsePower()
+    protected override void UsePower()
     {
         Debug.Log("Push Beam");
     }

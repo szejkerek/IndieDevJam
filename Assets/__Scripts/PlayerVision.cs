@@ -26,7 +26,7 @@ public class PlayerVision : MonoBehaviour
 
         if (PlayerRaycast(out Collider hit, raycastDistance))
         {
-            IPickUpble pickUpble = hit.GetComponent<IPickUpble>();
+            IInteractable pickUpble = hit.GetComponent<IInteractable>();
             lastRayTime = Time.time;
 
             if (pickUpble != null)
@@ -34,7 +34,7 @@ public class PlayerVision : MonoBehaviour
                 ShowHelp();
                 if (Input.GetKey(KeyCode.E))
                 {
-                    pickUpble.OnPickUp();         
+                    pickUpble.OnInteract();         
                 }
             }
         }

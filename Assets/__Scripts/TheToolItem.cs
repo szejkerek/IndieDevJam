@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TheToolItem : MonoBehaviour, IPickUpble
+public class TheToolItem : MonoBehaviour, IInteractable
 {
-    public void OnPickUp()
+    public void OnInteract()
     {
         gameObject.SetActive(false);
         Player.Instance.SpawnToolInHand();

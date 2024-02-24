@@ -1,15 +1,20 @@
 ﻿using GordonEssentials.Types;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class DialogueContainer
 {
-    [SerializeField] private List<DialogueLineSO> lines;
+    [SerializeField] private List<DialogueLineSO> lines = new List<DialogueLineSO>();
 
     int takeCount = 0;
     public DialogueContainer()
     {
-        lines.Shuffle();
+        if(lines != null && lines.Count > 0)
+        {
+            lines.Shuffle();
+        }
     }
 
     public DialogueLineSO TakeElement()

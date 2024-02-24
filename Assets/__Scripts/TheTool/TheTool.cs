@@ -1,11 +1,55 @@
+using GordonEssentials;
+using GordonEssentials.Types;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class TheTool : MonoBehaviour
+public class TheTool : Singleton<TheTool>
 {
+    public static Action OnDeath;
+
     [SerializeField] private float cooldown;
     private float lastUseTime;
 
-    private Power currentPower;
+    [SerializeField] private List<Power> possiblePowers;
+    int maxHealth;
+    int currentHealth;
+    private Power currentPower; 
+
+    protected override void Awake()
+    {
+        base.Awake();
+        maxHealth = possiblePowers.Count;
+        currentHealth = maxHealth;
+
+        possiblePowers.Shuffle();
+        GetNextSkill();
+    }
+
+    public void TakeDamage()
+    {
+        currentHealth--;
+        if(currentHealth <= 0 ) {
+            OnDeath?.Invoke();
+        }
+    }
+
+    public void GetNextSkill()
+    {
+        if (possiblePowers.Count <= 0)
+        {
+            Debug.Log("No more powers");
+            return;
+        }
+
+        currentPower = possiblePowers[0];
+        possiblePowers.RemoveAt(0);
+    }
+
+    public void PlayStartingDialogue()
+    {
+        DialogueManager.Instance.Play(currentPower.StartingDialogueLine);
+    }
 
     private void Update()
     {
@@ -38,7 +82,8 @@ public class TheTool : MonoBehaviour
     {
         if (currentPower != null)
         {
-            //currentPower.UsePower();
+            currentPower.UsePower();
+            DialogueManager.Instance.Play(currentPower.UsageDialogues.TakeElement());
         }
         else
         {

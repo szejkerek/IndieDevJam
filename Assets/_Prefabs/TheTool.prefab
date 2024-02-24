@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0.55
+  possiblePowers:
+  - {fileID: 11400000, guid: 27538462121d13b4eb3633757b6634bb, type: 2}
+  - {fileID: 11400000, guid: a3445264a884eba41be43d83dc9c2828, type: 2}
 --- !u!1001 &6568599782911275996
 PrefabInstance:
   m_ObjectHideFlags: 0

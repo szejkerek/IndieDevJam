@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd26fac1fe10dd4a96abe555b788512, type: 3}
   m_Name: PushBeamPower
   m_EditorClassIdentifier: 
+  <StartingDialogueLine>k__BackingField: {fileID: 11400000, guid: 77bbd257f8425374183c9f595609a16f, type: 2}
+  <UsageDialogues>k__BackingField:
+    lines:
+    - {fileID: 11400000, guid: 77bbd257f8425374183c9f595609a16f, type: 2}
+  <PowerColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}

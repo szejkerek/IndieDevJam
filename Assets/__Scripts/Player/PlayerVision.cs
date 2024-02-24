@@ -59,7 +59,6 @@ public class PlayerVision : MonoBehaviour
 
 
 
-
     void ShowHelp()
     {
         if (helpVisible)

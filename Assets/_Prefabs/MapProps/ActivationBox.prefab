@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1411112399745922237}
-  activateByPlateOnly: 1
+  activateByPlateOnly: 0
   noDischarge: 0
 --- !u!1001 &7894360048597932765
 PrefabInstance:

@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FreezePower : IPower
+[CreateAssetMenu(fileName = "FreezePower", menuName = "Power/FreezePower")]
+public class FreezePower : Power
 {
-    public void UsePower()
+    protected override void UsePower()
     {
         Debug.Log("Freeze Power");
     }

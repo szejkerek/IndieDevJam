@@ -6,15 +6,23 @@ using UnityEngine;
 public class Player : Singleton<Player>
 {
     public Camera PlayerCamera => playerCamera;
-    [SerializeField] Camera playerCamera;
+    Camera playerCamera;
     public TheTool TheTool => theTool;
+    TheTool theTool;    
+    public PlayerVision PlayerVision => playerVision;
+    PlayerVision playerVision;
+
     public GameObject paperworkPivot;
-    [SerializeField] TheTool theTool;
 
     private void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        theTool = GetComponentInChildren<TheTool>();
+        theTool.gameObject.SetActive(false);
+
+        playerCamera = GetComponentInChildren<Camera>();
+        playerVision = GetComponent<PlayerVision>();
     }
 
     public Vector3 GetLookRotation()
@@ -25,13 +33,8 @@ public class Player : Singleton<Player>
             return Vector3.zero;
         }
 
-        Vector3 lookRotation = playerCamera.transform.rotation.eulerAngles;
+        Vector3 lookRotation = playerCamera.transform.forward;
         return lookRotation;
-    }
-
-    private void Update()
-    {
-        Debug.DrawLine(playerCamera.transform.position, GetLookRotation());
     }
 
     public void SpawnToolInHand() 

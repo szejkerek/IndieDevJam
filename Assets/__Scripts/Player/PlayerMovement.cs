@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float jumpCooldown;
     [SerializeField] float airMultiplier;
-    [SerializeField] LayerMask walkable;
     bool readyToJump = true;
 
     [Header("Ground check")]
@@ -26,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
     Transform orientation;
+    int groundCollisions = 0;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, walkable);
+        grounded = groundCollisions >= 1;
 
         MyInput();
         SpeedControl();
@@ -44,6 +44,16 @@ public class PlayerMovement : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        groundCollisions++;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        groundCollisions--;
     }
 
     private void FixedUpdate()

@@ -24,7 +24,7 @@ public class Player : Singleton<Player>
             return Vector3.zero;
         }
 
-        Vector3 lookRotation = playerCamera.transform.forward;
+        Vector3 lookRotation = playerCamera.transform.rotation.eulerAngles;
         return lookRotation;
     }
 

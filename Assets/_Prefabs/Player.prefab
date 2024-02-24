@@ -577,9 +577,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   groundDrag: 5
-  jumpForce: 6
+  jumpForce: 8
   jumpCooldown: 0.25
   airMultiplier: 0.2
+  walkable:
+    serializedVersion: 2
+    m_Bits: 64
   playerHeight: 2
 --- !u!1 &7985630102129273923
 GameObject:

@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float jumpCooldown;
     [SerializeField] float airMultiplier;
+    [SerializeField] LayerMask walkable;
     bool readyToJump = true;
 
     [Header("Ground check")]
@@ -34,13 +35,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, walkable);
 
         MyInput();
         SpeedControl();
 
-        // handle drag
         if (grounded)
             rb.drag = groundDrag;
         else

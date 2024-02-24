@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : Singleton<Player>
 {
+    public Camera PlayerCamera => playerCamera;
     [SerializeField] Camera playerCamera;
     public TheTool TheTool => theTool;
     [SerializeField] TheTool theTool;

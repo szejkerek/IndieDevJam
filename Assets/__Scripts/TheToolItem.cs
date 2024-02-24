@@ -7,6 +7,6 @@ public class TheToolItem : MonoBehaviour, IPickUpble
     public void OnPickUp()
     {
         gameObject.SetActive(false);
-
+        Player.Instance.SpawnToolInHand();
     }
 }

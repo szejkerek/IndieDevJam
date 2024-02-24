@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     Camera cam;
 
+
+
     int groundCollisions = 0;
 
 
@@ -15,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     [SerializeField]
-    private float speed = 10f, camUpDownSpeed = 5f, camLeftRightSpeed = 5f, jumpForce = 50f;
+    private float speed = 10f, camUpDownSpeed = 5f, camLeftRightSpeed = 5f, jumpForce = 50f, gravityMultiplier = 0.2f;
     private Vector3 movement;
 
 
@@ -48,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         float prevY = movement.y;
 
         if (groundCollisions > 0 && Input.GetKey(KeyCode.Space)) movement = new Vector3(movement.x, jumpForce, movement.z);
-        else if (groundCollisions <= 0) movement = new Vector3(movement.x, prevY + Physics.gravity.y * 0.5f, movement.z);
+        else if (groundCollisions <= 0) movement = new Vector3(movement.x, prevY + Physics.gravity.y * gravityMultiplier, movement.z);
         else movement = new Vector3(movement.x, Physics.gravity.y * 0.05f, movement.z);
 
         if (movement.x * movement.x < 0.1f) movement.x = 0;

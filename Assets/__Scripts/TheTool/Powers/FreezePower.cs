@@ -16,7 +16,6 @@ public class FreezePower : Power
                 Debug.Log(hitCollider.gameObject.name);
                 Rigidbody rb = hitCollider.gameObject.GetComponent<Rigidbody>();
                 rb.isKinematic = !rb.isKinematic;
-                //rb.useGravity = !rb.useGravity;
             }
         }
         Debug.Log("Freeze Power");

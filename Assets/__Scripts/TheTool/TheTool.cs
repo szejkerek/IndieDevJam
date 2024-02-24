@@ -82,7 +82,7 @@ public class TheTool : MonoBehaviour
         if (currentPower != null)
         {
             currentPower.UsePower();
-            DialogueManager.Instance.Play(currentPower.UsageDialogues.TakeElement());
+            //DialogueManager.Instance.Play(currentPower.UsageDialogues.TakeElement());
         }
         else
         {

@@ -39,17 +39,25 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Vector2 cameraMovement = new Vector2((Input.mousePosition.x - previousMousePosition.x) * Time.fixedDeltaTime * camLeftRightSpeed,
-    (Input.mousePosition.y - previousMousePosition.y) * Time.fixedDeltaTime * camUpDownSpeed);
+        Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+
+        Vector2 cameraMovement = new Vector2(mouseDelta.x *camLeftRightSpeed,
+    mouseDelta.y * camUpDownSpeed);
 
 
         cam.transform.rotation = Quaternion.Euler(
+            (cam.transform.rotation.eulerAngles.x - cameraMovement.y),
+            cam.transform.rotation.eulerAngles.y + cameraMovement.x,
+            0);
+
+
+        /*cam.transform.rotation = Quaternion.Euler(
             (cam.transform.rotation.x - cameraMovement.y) > 45 ? 45 : 
             ((cam.transform.rotation.x - cameraMovement.y) < -45 ? -45 : (cam.transform.rotation.x - cameraMovement.y)), 
             cam.transform.rotation.y + cameraMovement.x, 
-            0);
+            0);*/
 
-        
+
 
         movement = (cam.transform.rotation.normalized * new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"))).normalized;
         movement = new Vector3(movement.x, 0, movement.z).normalized;

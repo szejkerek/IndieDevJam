@@ -10,6 +10,12 @@ public class Player : Singleton<Player>
     public TheTool TheTool => theTool;
     [SerializeField] TheTool theTool;
 
+    private void Start()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
     public Vector3 GetLookRotation()
     {
         if (playerCamera == null)

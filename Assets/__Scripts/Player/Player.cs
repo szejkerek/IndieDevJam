@@ -8,6 +8,7 @@ public class Player : Singleton<Player>
     public Camera PlayerCamera => playerCamera;
     [SerializeField] Camera playerCamera;
     public TheTool TheTool => theTool;
+    public GameObject paperworkPivot;
     [SerializeField] TheTool theTool;
 
     private void Start()

@@ -17,3 +17,4 @@ MonoBehaviour:
     lines:
     - {fileID: 11400000, guid: 77bbd257f8425374183c9f595609a16f, type: 2}
   <PowerColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+  power: 3000

@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Player : Singleton<Player>
 {
-    public Camera PlayerCamera => playerCamera;
-    Camera playerCamera;
+    [SerializeField] Transform cameraHolder;
+    public PlayerCamera PlayerCamera => playerCamera;
+    PlayerCamera playerCamera;
     public TheTool TheTool => theTool;
     TheTool theTool;    
     public PlayerVision PlayerVision => playerVision;
@@ -14,15 +15,18 @@ public class Player : Singleton<Player>
 
     public GameObject paperworkPivot;
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         theTool = GetComponentInChildren<TheTool>();
         theTool.gameObject.SetActive(false);
 
-        playerCamera = GetComponentInChildren<Camera>();
+        playerCamera = GetComponentInChildren<PlayerCamera>();
         playerVision = GetComponent<PlayerVision>();
+
+        cameraHolder.parent = null;
     }
 
     public Vector3 GetLookRotation()

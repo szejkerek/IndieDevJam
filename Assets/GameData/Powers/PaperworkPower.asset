@@ -16,4 +16,4 @@ MonoBehaviour:
   <UsageDialogues>k__BackingField:
     lines: []
   <PowerColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-  paperworkReference: {fileID: 6844561976565664166, guid: d454933f111cd4a4d9a54c3d3f770a39, type: 3}
+  paperworkReference: {fileID: 6505162061063448459, guid: 69e5cf0e26eadca42a8895e6d7ee50b1, type: 3}

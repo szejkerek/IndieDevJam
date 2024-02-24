@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerVision : MonoBehaviour
 {
-    [SerializeField] GameObject HelpObject;
+    [SerializeField] TMP_Text HelpObject;
     [SerializeField] float raycastDistance;
     [SerializeField] float rayCooldown;
     float lastRayTime;
@@ -14,7 +15,7 @@ public class PlayerVision : MonoBehaviour
     private void Start()
     {
         player = Player.Instance;
-        HelpObject.SetActive(false);
+        HelpObject.gameObject.SetActive(false);
     }
 
 
@@ -26,15 +27,23 @@ public class PlayerVision : MonoBehaviour
 
         if (PlayerRaycast(out Collider hit, raycastDistance))
         {
-            IInteractable pickUpble = hit.GetComponent<IInteractable>();
             lastRayTime = Time.time;
 
-            if (pickUpble != null)
+            if (hit.TryGetComponent(out IInteractable pickUpble))
             {
-                ShowHelp();
+                ShowHelp("[E] Interact");
                 if (Input.GetKey(KeyCode.E))
                 {
                     pickUpble.OnInteract();         
+                }
+            }
+
+            if (hit.TryGetComponent(out IUseable useable))
+            {
+                ShowHelp("[LMB] Use");
+                if (Input.GetKey(KeyCode.Mouse0))
+                {
+                    useable.OnUse();
                 }
             }
         }
@@ -57,15 +66,12 @@ public class PlayerVision : MonoBehaviour
         return false;
     }
 
-
-
-
-    void ShowHelp()
+    void ShowHelp(string text)
     {
         if (helpVisible)
             return;
-
-        HelpObject.SetActive(true);
+        HelpObject.text = text;
+        HelpObject.gameObject.SetActive(true);
         helpVisible = true;
     }
 
@@ -74,7 +80,7 @@ public class PlayerVision : MonoBehaviour
         if (!helpVisible)
             return;
 
-        HelpObject.SetActive(false);
+        HelpObject.gameObject.SetActive(false);
         helpVisible = false;
     }
 }

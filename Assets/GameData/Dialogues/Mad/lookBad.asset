@@ -20,5 +20,6 @@ MonoBehaviour:
     spatialBlend: 0
     minDistance: 1
     maxDistance: 500
+  madLine: 1
   <Subtitles>k__BackingField: "You\u2019re making me look bad\u2026 In a bad way!
     I want to be bad in a good way!"

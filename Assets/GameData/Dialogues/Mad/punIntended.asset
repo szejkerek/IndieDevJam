@@ -20,5 +20,6 @@ MonoBehaviour:
     spatialBlend: 0
     minDistance: 1
     maxDistance: 500
+  madLine: 1
   <Subtitles>k__BackingField: Now.. this is a wrench in my wicked plans! How dare
     you! (Pun intended)

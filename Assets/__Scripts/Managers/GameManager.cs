@@ -59,7 +59,7 @@ public class GameManager : Singleton<GameManager>
     IEnumerator ForcePlayerPos()
     {
         isReloading = true;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.5f);
         SetupPlayerTransform();
         isReloading = false;
     }
@@ -125,11 +125,9 @@ public class GameManager : Singleton<GameManager>
 
     private void SetupPlayerTransform()
     {
-        Debug.Log("=> Setting up");
         if (!introDone)
         {
             if (Player.Instance == null) return;
-            Debug.Log("=> Got inside");
             Transform respawnPoint = GameObject.Find("Respawn").transform;
             Player.Instance.gameObject.transform.position = respawnPoint.position;
             Player.Instance.gameObject.transform.rotation = respawnPoint.rotation;
@@ -182,7 +180,17 @@ public class GameManager : Singleton<GameManager>
     {
         Debug.Log("Unscrew");
         DialogueManager.Instance.PlayMadLine();
+        StartCoroutine(WaitForVictoryDialogueAndFinish());
     }
 
+    private IEnumerator WaitForVictoryDialogueAndFinish()
+    {
+        while (DialogueManager.Instance.madLinePlayed)
+            yield return null;
+        progressed = true;
+        DialogueManager.Instance.madLinePlayed = false;
+        RestartGame();
+        yield return null;
+    }
 
 }

@@ -20,5 +20,6 @@ MonoBehaviour:
     spatialBlend: 0
     minDistance: 1
     maxDistance: 500
+  madLine: 1
   <Subtitles>k__BackingField: This is not supposed to be some sort of heroic saga.
     Who gave you permission to win?

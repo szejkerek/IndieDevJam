@@ -20,5 +20,6 @@ MonoBehaviour:
     spatialBlend: 0
     minDistance: 1
     maxDistance: 500
+  madLine: 1
   <Subtitles>k__BackingField: "What in the twisted nuts of chaos is this? You\u2019re
     actually succeeding? Unacceptable!"

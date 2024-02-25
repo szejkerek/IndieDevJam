@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811b5774c12906747936516df6798e59, type: 3}
+  m_Name: youFool
+  m_EditorClassIdentifier: 
+  <Clip>k__BackingField: {fileID: 8300000, guid: beded2d921e47a145a2ce122deee1c0b, type: 3}
+  volume: 1
+  pitchVariation: 0
+  loop: 0
+  <Settings3D>k__BackingField:
+    spatialBlend: 0
+    minDistance: 1
+    maxDistance: 500
+  <Subtitles>k__BackingField: Hahaha... You fool

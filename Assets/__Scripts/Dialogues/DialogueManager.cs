@@ -9,20 +9,31 @@ public class DialogueManager : Singleton<DialogueManager>
     [SerializeField] TMP_Text dialogueText;
     [SerializeField] private DialogueContainer defaultLines;
     [SerializeField] private DialogueContainer madLines;
+    private Queue<DialogueLineSO> dialogQueue;
 
     bool dialogueIsBlocked = false;
     private void Start()
     {
+        dialogQueue = new Queue<DialogueLineSO>();
         dialogueText.text = string.Empty;
+        PlayMadLine();
+        PlayMadLine();
     }
+
     public void Play(DialogueLineSO dialogueToPlay)
     {
         if(dialogueIsBlocked)
         {
             Debug.LogWarning($"Dialogue is still blocked.");
+            dialogQueue.Enqueue(dialogueToPlay);
             return;
         }
         StartCoroutine(PlayDialogue(dialogueToPlay));
+    }
+
+    public void ClearQueue()
+    {
+        dialogQueue.Clear();
     }
 
     public void PlayDefaultLine()
@@ -53,6 +64,7 @@ public class DialogueManager : Singleton<DialogueManager>
         }
 
         dialogueIsBlocked = false;
+        if (dialogQueue.Count > 0) Play(dialogQueue.Dequeue());
     }
 
 }

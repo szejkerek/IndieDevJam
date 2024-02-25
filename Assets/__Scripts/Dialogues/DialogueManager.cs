@@ -38,7 +38,10 @@ public class DialogueManager : Singleton<DialogueManager>
     public void ClearAndStop()
     {
         dialogQueue.Clear();
-        AudioManager.Instance.StopAudio();
+        foreach (AudioSource s in AudioManager.Instance.gameObject.GetComponents<AudioSource>())
+        {
+            s.Stop();
+        }
         dialogueText.text = "";
     }
 

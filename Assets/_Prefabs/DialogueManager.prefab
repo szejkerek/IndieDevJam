@@ -185,9 +185,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 6703778080166686637}
   defaultLines:
-    lines: []
+    lines:
+    - {fileID: 11400000, guid: 77bbd257f8425374183c9f595609a16f, type: 2}
   madLines:
-    lines: []
+    lines:
+    - {fileID: 11400000, guid: 77bbd257f8425374183c9f595609a16f, type: 2}
 --- !u!1 &5956523734125655487
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,7 +30,6 @@ public class IntroManager : Singleton<IntroManager>
         lightObject.gameObject.SetActive(false);
         //toolItem.BlockInteractions = true;
         //screw.BlockInteractions = true;
-
         //StartCoroutine(IntroSequence());
     }
 

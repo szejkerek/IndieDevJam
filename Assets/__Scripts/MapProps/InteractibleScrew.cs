@@ -42,6 +42,6 @@ public class InteractibleScrew : MonoBehaviour, IInteractable
         onUnscrew?.Invoke();
         unscrewedOnce = true;
 
-        GameManager.Instance.AddObjectToTrash(gameObject);
+        //GameManager.Instance.AddObjectToTrash(gameObject);
     }
 }

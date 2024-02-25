@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class TheTool : MonoBehaviour
 {
+    public static Action OnSpawnedInHands;
     public static Action OnDeath;
 
     [SerializeField] private float cooldown;
@@ -18,6 +19,7 @@ public class TheTool : MonoBehaviour
 
      void Awake()
     {
+        OnSpawnedInHands?.Invoke();
         maxHealth = possiblePowers.Count;
         currentHealth = maxHealth;
 

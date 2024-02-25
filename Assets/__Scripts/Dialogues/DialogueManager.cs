@@ -8,7 +8,6 @@ public class DialogueManager : Singleton<DialogueManager>
 {
     [SerializeField] TMP_Text dialogueText;
     [SerializeField] private DialogueContainer defaultLines;
-    [SerializeField] private DialogueContainer happyLines;
     [SerializeField] private DialogueContainer madLines;
 
     bool dialogueIsBlocked = false;
@@ -29,11 +28,6 @@ public class DialogueManager : Singleton<DialogueManager>
     public void PlayDefaultLine()
     {
         Play(defaultLines.TakeElement());
-    }
-
-    public void PlayHappyLine()
-    {
-        Play(happyLines.TakeElement());
     }
 
     public void PlayMadLine()

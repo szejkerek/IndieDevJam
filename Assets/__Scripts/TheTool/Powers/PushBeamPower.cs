@@ -13,7 +13,6 @@ public class PushBeamPower : Power
        
         if (Player.Instance.PlayerVision.PlayerRaycast(out Collider hit, Mathf.Infinity))
         {
-            Debug.Log(hit.gameObject.name);
             if (hit.gameObject.GetComponent<Rigidbody>() != null)
             {
                 Vector3 dir = Player.Instance.GetLookRotation().normalized;

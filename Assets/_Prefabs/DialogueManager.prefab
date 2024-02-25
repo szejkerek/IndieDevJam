@@ -65,9 +65,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dialogue Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-    sit amet ornare turpis, ac pharetra diam. Nulla ac tincidunt purus. Curabitur
-    euismod leo magna, eu varius felis maximus ut. Sed mauris sapie
+  m_text: "You see, you fell into my little trap. And by little, I mean huge. See
+    those screws on the door? That\u2019s right, I did it. You\u2019re locked up
+    in here, with no way out. How\u2019s that? Haha! Now I can take over the world
+    in no time. You\u2019re entire species is doomed.\r\nplayer interacts with the
+    wrench"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -182,6 +184,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 6703778080166686637}
+  defaultLines:
+    lines: []
+  madLines:
+    lines: []
 --- !u!1 &5956523734125655487
 GameObject:
   m_ObjectHideFlags: 0

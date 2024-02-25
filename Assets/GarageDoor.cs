@@ -10,6 +10,7 @@ public class GarageDoor : MonoBehaviour
     // Method to open the garage door using DOTween animation
     public void OpenDoor()
     {      
+        IntroManager.Instance.doorOpen = true;
         door.transform.DOMove(transform.position + Vector3.up * height, duration)
             .SetEase(Ease.Linear)
             .OnComplete(OnDoorOpened);

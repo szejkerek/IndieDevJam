@@ -1,4 +1,5 @@
 using GordonEssentials;
+using GordonEssentials.Types;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,22 +9,19 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>   
 {
-    [SerializeField] Slider durability;
+    public Slider durability;
     [SerializeField] Transform startpoint;
     public List<int> unscrewedScrews;
 
     List<GameObject> trash = new List<GameObject>();
+    public List<Power> possiblePowers;
     bool canRestart = false;
     bool isReloading = false;
 
-    bool introDone = false;
+    public bool introDone = false;
 
 
-    bool progressed = false;
-
-
-    Vector3 respawnPosition;
-    Quaternion respawnRotation;
+    [SerializeField] bool progressed = false;
 
     protected override void Awake()
     {
@@ -31,13 +29,17 @@ public class GameManager : Singleton<GameManager>
         if (FindObjectsOfType<GameManager>().Length > 1) Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
 
-        Transform respawnPoint = GameObject.Find("Respawn").transform;
-        respawnPosition = respawnPoint.position;
-        respawnRotation = respawnPoint.rotation;
-
+        possiblePowers.Shuffle();
         durability.gameObject.SetActive(false);
-        OnIntroCompleted();
-    }
+
+        Player.Instance.TheTool.possiblePowers = possiblePowers;
+        Player.Instance.TheTool.InitializePowers();
+
+        SetupPlayerTransform();
+
+
+        StartCoroutine(ForcePlayerPos());
+        }
 
     private void Update()
     {
@@ -50,16 +52,24 @@ public class GameManager : Singleton<GameManager>
     IEnumerator ReloadCooldown()
     {
         isReloading = true;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
+        isReloading = false;
+    }
+
+    IEnumerator ForcePlayerPos()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(0.1f);
+        SetupPlayerTransform();
         isReloading = false;
     }
 
     public void OnIntroCompleted()
     {
         Debug.Log("End of intro");
-        durability.gameObject.SetActive(true);
-        //Player.Instance.TheTool.PlayStartingDialogue(); 
+        Player.Instance.TheTool.PlayStartingDialogue(); 
         canRestart = true;
+        introDone = true;
     }
 
     public void AddObjectToTrash(GameObject obj)
@@ -77,17 +87,21 @@ public class GameManager : Singleton<GameManager>
 
     public void SetupAfterRestart()
     {
+        Debug.Log(Player.Instance.transform.position);
         SetupScrews();
         if (!introDone) return;
         if (progressed)
         {
+            possiblePowers.RemoveAt(0);
+            if (possiblePowers.Count == 0) Debug.Log("++++++++++++++ GAME WON ++++++++++++++++++++");
             progressed = false;
             Debug.Log("Roll new power");
         }
 
 
         SetupPlayerTransform();
-        FindObjectOfType<TheToolItem>().OnInteract();
+        SetupTheTool();
+        Player.Instance.TheTool.PlayStartingDialogue();
     }
 
     private void SetupScrews()
@@ -111,9 +125,32 @@ public class GameManager : Singleton<GameManager>
 
     private void SetupPlayerTransform()
     {
-        Player.Instance.transform.position = respawnPosition;
-        Player.Instance.transform.rotation = respawnRotation;
+        Debug.Log("=> Setting up");
+        if (!introDone)
+        {
+            if (Player.Instance == null) return;
+            Debug.Log("=> Got inside");
+            Transform respawnPoint = GameObject.Find("Respawn").transform;
+            Player.Instance.gameObject.transform.position = respawnPoint.position;
+            Player.Instance.gameObject.transform.rotation = respawnPoint.rotation;
+        }
     }
+
+    private void SetupTheTool()
+    {
+        if (FindObjectOfType<TheToolItem>() != null)
+        {
+            FindObjectOfType<TheToolItem>().OnInteract();
+        }
+        if (FindObjectOfType<TheTool>() != null)
+        {
+            TheTool tool = FindObjectOfType<TheTool>();
+            tool.possiblePowers = possiblePowers;
+            tool.InitializePowers();
+        }
+
+    }
+
 
     public void RestartGame()
     {
@@ -131,7 +168,6 @@ public class GameManager : Singleton<GameManager>
         if (isReloading) return;
         StartCoroutine(ReloadCooldown());
         
-
         FadeScreen.Instance.FadeAction(() =>
         {
             string currentSceneName = SceneManager.GetActiveScene().name;

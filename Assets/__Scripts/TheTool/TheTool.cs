@@ -12,18 +12,22 @@ public class TheTool : MonoBehaviour
     [SerializeField] private float cooldown;
     private float lastUseTime;
 
-    [SerializeField] private List<Power> possiblePowers;
+    public List<Power> possiblePowers;
     int maxHealth;
     int currentHealth;
-    private Power currentPower; 
+    [SerializeField] private Power currentPower; 
 
      void Awake()
-    {
-        OnSpawnedInHands?.Invoke();
+     {
         maxHealth = possiblePowers.Count;
         currentHealth = maxHealth;
+        OnSpawnedInHands?.Invoke();        
+     }
 
-        possiblePowers.Shuffle();
+    public void InitializePowers()
+    {
+        maxHealth = possiblePowers.Count;
+        currentHealth = maxHealth;
         GetNextSkill();
     }
 
@@ -44,7 +48,8 @@ public class TheTool : MonoBehaviour
         }
 
         currentPower = possiblePowers[0];
-        possiblePowers.RemoveAt(0);
+        //possiblePowers.RemoveAt(0);
+        //GameManager.Instance.possiblePowers.Remove(currentPower);
     }
 
     public void PlayStartingDialogue()
@@ -78,7 +83,6 @@ public class TheTool : MonoBehaviour
     {
         if (Player.Instance.PlayerVision.PlayerRaycast(out Collider hit, Mathf.Infinity))
         {
-            Debug.Log(hit.gameObject.name);
             if (hit.gameObject.GetComponent<IInteractable>() != null)
             {
                 hit.gameObject.GetComponent<IInteractable>().OnInteract();

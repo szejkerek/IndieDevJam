@@ -28,10 +28,10 @@ public class IntroManager : Singleton<IntroManager>
     private void Start()
     {
         lightObject.gameObject.SetActive(false);
-        toolItem.BlockInteractions = true;
-        screw.BlockInteractions = true;
+        //toolItem.BlockInteractions = true;
+        //screw.BlockInteractions = true;
 
-        StartCoroutine(IntroSequence());
+        //StartCoroutine(IntroSequence());
     }
 
     private IEnumerator IntroSequence()

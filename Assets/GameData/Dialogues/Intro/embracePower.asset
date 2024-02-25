@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811b5774c12906747936516df6798e59, type: 3}
   m_Name: embracePower
   m_EditorClassIdentifier: 
-  <Clip>k__BackingField: {fileID: 8300000, guid: f7e2e7d6e98655e49975596117327489, type: 3}
+  <Clip>k__BackingField: {fileID: 8300000, guid: ca44cb7f9ecf4ab4bbad6a4aed7f447a, type: 3}
   volume: 1
   pitchVariation: 0
   loop: 0

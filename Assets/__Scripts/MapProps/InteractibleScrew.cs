@@ -10,6 +10,7 @@ public class InteractibleScrew : MonoBehaviour, IInteractable
     Animator animator;
     Rigidbody rb;
     bool startedAnimation = false;
+    bool unscrewedOnce = false;
 
     private void Start()
     {
@@ -33,11 +34,14 @@ public class InteractibleScrew : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
-        if (BlockInteractions)
+        if (BlockInteractions || unscrewedOnce)
             return;
 
         startedAnimation = true;
         animator.SetBool("Animate", true);
         onUnscrew?.Invoke();
+        unscrewedOnce = true;
+
+        GameManager.Instance.AddObjectToTrash(gameObject);
     }
 }

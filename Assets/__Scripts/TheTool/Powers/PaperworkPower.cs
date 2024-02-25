@@ -12,6 +12,7 @@ public class PaperworkPower : Power
     public override void UsePower()
     {
         GameObject paperWork = Instantiate(paperworkReference);
+        GameManager.Instance.AddObjectToTrash(paperWork);
         paperWork.transform.position = Player.Instance.paperworkPivot.transform.position;
         paperWork.transform.rotation = Player.Instance.paperworkPivot.transform.rotation;
 

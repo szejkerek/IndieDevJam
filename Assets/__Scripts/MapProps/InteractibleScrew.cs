@@ -1,10 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
+using UnityEngine.Events;
 
 public class InteractibleScrew : MonoBehaviour, IInteractable
 {
+    public bool BlockInteractions = false;
+    public UnityEvent onUnscrew;
+
+
     Animator animator;
     Rigidbody rb;
     bool startedAnimation = false;
@@ -31,7 +33,11 @@ public class InteractibleScrew : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
+        if (BlockInteractions)
+            return;
+
         startedAnimation = true;
         animator.SetBool("Animate", true);
+        onUnscrew?.Invoke();
     }
 }

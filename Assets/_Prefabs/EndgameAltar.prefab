@@ -223,7 +223,51 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2580478940110665157, guid: 91f1e8ebe00543744a4dd0dd07eb6da6, type: 3}
       propertyPath: m_Intensity
-      value: 0.09
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157967608581813142, guid: 91f1e8ebe00543744a4dd0dd07eb6da6, type: 3}
+      propertyPath: onUnscrew.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157967608581813142, guid: 91f1e8ebe00543744a4dd0dd07eb6da6, type: 3}
+      propertyPath: onUnscrew.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157967608581813142, guid: 91f1e8ebe00543744a4dd0dd07eb6da6, type: 3}
+      propertyPath: onUnscrew.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157967608581813142, guid: 91f1e8ebe00543744a4dd0dd07eb6da6, type: 3}
+      propertyPath: onUnscrew.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157967608581813142, guid: 91f1e8ebe00543744a4dd0dd07eb6da6, type: 3}
+      propertyPath: onUnscrew.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157967608581813142, guid: 91f1e8ebe00543744a4dd0dd07eb6da6, type: 3}
+      propertyPath: onUnscrew.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157967608581813142, guid: 91f1e8ebe00543744a4dd0dd07eb6da6, type: 3}
+      propertyPath: onUnscrew.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnDoorOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157967608581813142, guid: 91f1e8ebe00543744a4dd0dd07eb6da6, type: 3}
+      propertyPath: onUnscrew.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GarageDoor, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157967608581813142, guid: 91f1e8ebe00543744a4dd0dd07eb6da6, type: 3}
+      propertyPath: onUnscrew.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: IntroManager, __Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157967608581813142, guid: 91f1e8ebe00543744a4dd0dd07eb6da6, type: 3}
+      propertyPath: onUnscrew.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157967608581813142, guid: 91f1e8ebe00543744a4dd0dd07eb6da6, type: 3}
+      propertyPath: onUnscrew.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8316238031250917261, guid: 91f1e8ebe00543744a4dd0dd07eb6da6, type: 3}
       propertyPath: m_LocalScale.x
@@ -239,15 +283,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8316238031250917261, guid: 91f1e8ebe00543744a4dd0dd07eb6da6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.034111977
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8316238031250917261, guid: 91f1e8ebe00543744a4dd0dd07eb6da6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.08071461
+      value: -0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8316238031250917261, guid: 91f1e8ebe00543744a4dd0dd07eb6da6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.05822949
+      value: 0.067
       objectReference: {fileID: 0}
     - target: {fileID: 8316238031250917261, guid: 91f1e8ebe00543744a4dd0dd07eb6da6, type: 3}
       propertyPath: m_LocalRotation.w

@@ -7,7 +7,7 @@ using UnityEngine;
 public class IntroManager : Singleton<IntroManager>
 {
     [SerializeField] TheToolItem toolItem;
-    [SerializeField] Screw screw;
+    [SerializeField] InteractibleScrew screw;
     [SerializeField] GameObject lightObject;
     [SerializeField] Sound lightOnSound;
     [Space]

@@ -74,6 +74,16 @@ public class TheTool : MonoBehaviour
 
     private void PerformDefaultToolInteraction()
     {
+        if (Player.Instance.PlayerVision.PlayerRaycast(out Collider hit, Mathf.Infinity))
+        {
+            Debug.Log(hit.gameObject.name);
+            if (hit.gameObject.GetComponent<IInteractable>() != null)
+            {
+                hit.gameObject.GetComponent<IInteractable>().OnInteract();
+            }
+        }
+
+
         Debug.Log("Default Tool Interaction");
     }
 

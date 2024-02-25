@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 301b1a14f90d1634ebe0d0849c1646f1, type: 3}
   m_Name: PaperworkPower
   m_EditorClassIdentifier: 
-  <StartingDialogueLine>k__BackingField: {fileID: 0}
+  <StartingDialogueLine>k__BackingField: {fileID: 11400000, guid: 948ae89a80d586c4e91205531bb52f0c, type: 2}
   <UsageDialogues>k__BackingField:
     lines: []
   <PowerColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}

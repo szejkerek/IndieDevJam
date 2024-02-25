@@ -2,25 +2,41 @@ using GordonEssentials;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>   
 {
-    [SerializeField] List<InteractibleScrew> interactibleScrewList;
     [SerializeField] Slider durability;
     [SerializeField] Transform startpoint;
+    public List<int> unscrewedScrews;
 
     List<GameObject> trash = new List<GameObject>();
     bool canRestart = false;
+    bool isReloading = false;
+
+    bool introDone = false;
+
+
+    bool progressed = false;
+
+
+    Vector3 respawnPosition;
+    Quaternion respawnRotation;
+
     protected override void Awake()
     {
         base.Awake();
+        if (FindObjectsOfType<GameManager>().Length > 1) Destroy(gameObject);
+        DontDestroyOnLoad(gameObject);
+
+        Transform respawnPoint = GameObject.Find("Respawn").transform;
+        respawnPosition = respawnPoint.position;
+        respawnRotation = respawnPoint.rotation;
+
         durability.gameObject.SetActive(false);
         OnIntroCompleted();
-        foreach(var screw in interactibleScrewList)
-        {
-            screw.onUnscrew.AddListener(OnUnscrewEndgame);
-        }
     }
 
     private void Update()
@@ -29,6 +45,13 @@ public class GameManager : Singleton<GameManager>
         {
             RestartGame();
         }
+    }
+
+    IEnumerator ReloadCooldown()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(2);
+        isReloading = false;
     }
 
     public void OnIntroCompleted()
@@ -52,8 +75,49 @@ public class GameManager : Singleton<GameManager>
         trash.Clear();
     }
 
+    public void SetupAfterRestart()
+    {
+        SetupScrews();
+        if (!introDone) return;
+        if (progressed)
+        {
+            progressed = false;
+            Debug.Log("Roll new power");
+        }
+
+
+        SetupPlayerTransform();
+        FindObjectOfType<TheToolItem>().OnInteract();
+    }
+
+    private void SetupScrews()
+    {
+        InteractibleScrew [] screws = FindObjectsOfType<InteractibleScrew>();
+        List<InteractibleScrew> toDestroy = new List<InteractibleScrew>();
+        foreach (InteractibleScrew s in screws)
+        {
+            if (unscrewedScrews.Contains(s.screwIndex))
+            {
+                toDestroy.Add(s);
+            }
+        }
+
+        foreach (InteractibleScrew s in toDestroy)
+        {
+            Debug.Log(s.screwIndex + " destroyed");
+            Destroy(s.gameObject);
+        }
+    }
+
+    private void SetupPlayerTransform()
+    {
+        Player.Instance.transform.position = respawnPosition;
+        Player.Instance.transform.rotation = respawnRotation;
+    }
+
     public void RestartGame()
     {
+        /*
         Transform player = FindObjectOfType<Player>().transform;
 
         FadeScreen.Instance.FadeAction(() =>
@@ -61,7 +125,20 @@ public class GameManager : Singleton<GameManager>
             ClearTrash();
             player.transform.position = startpoint.position;
         });
+        */
+        //DialogueManager.Instance.ClearAndStop();
+
+        if (isReloading) return;
+        StartCoroutine(ReloadCooldown());
         
+
+        FadeScreen.Instance.FadeAction(() =>
+        {
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            DialogueManager.Instance.ClearAndStop();
+            SceneManager.LoadScene(currentSceneName);
+        });
+
        // Invoke(nameof(DialogueManager.Instance.PlayDefaultLine), 2);
     }
 

@@ -5,12 +5,13 @@ public class InteractibleScrew : MonoBehaviour, IInteractable
 {
     public bool BlockInteractions = false;
     public UnityEvent onUnscrew;
-
+    public int screwIndex;
 
     Animator animator;
     Rigidbody rb;
     bool startedAnimation = false;
     bool unscrewedOnce = false;
+    [SerializeField] bool progressGame = false;
 
     private void Start()
     {
@@ -20,7 +21,8 @@ public class InteractibleScrew : MonoBehaviour, IInteractable
 
     private void Update()
     {
-        if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && startedAnimation)
+        if (animator == null) return;
+        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && startedAnimation)
         {
             OnAnimationEnd();
             startedAnimation = false;
@@ -29,6 +31,7 @@ public class InteractibleScrew : MonoBehaviour, IInteractable
 
     private void OnAnimationEnd()
     {
+        if (GetComponent<Animator>() != null) Destroy(GetComponent<Animator>());
         rb.constraints = RigidbodyConstraints.None;
     }
 
@@ -39,9 +42,20 @@ public class InteractibleScrew : MonoBehaviour, IInteractable
 
         startedAnimation = true;
         animator.SetBool("Animate", true);
-        onUnscrew?.Invoke();
+
         unscrewedOnce = true;
+
+        onUnscrew?.Invoke();
+
+
+        Debug.Log(screwIndex + " unscrewed!");
+
+        GameManager.Instance.unscrewedScrews.Add(screwIndex);
+
+        if (!progressGame) return;
+        GameManager.Instance.OnUnscrewEndgame();
 
         //GameManager.Instance.AddObjectToTrash(gameObject);
     }
+
 }

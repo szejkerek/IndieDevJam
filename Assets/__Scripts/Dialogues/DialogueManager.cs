@@ -16,8 +16,6 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         dialogQueue = new Queue<DialogueLineSO>();
         dialogueText.text = string.Empty;
-        PlayMadLine();
-        PlayMadLine();
     }
 
     public void Play(DialogueLineSO dialogueToPlay)
@@ -31,9 +29,11 @@ public class DialogueManager : Singleton<DialogueManager>
         StartCoroutine(PlayDialogue(dialogueToPlay));
     }
 
-    public void ClearQueue()
+    public void ClearAndStop()
     {
         dialogQueue.Clear();
+        AudioManager.Instance.StopAudio();
+        dialogueText.text = "";
     }
 
     public void PlayDefaultLine()

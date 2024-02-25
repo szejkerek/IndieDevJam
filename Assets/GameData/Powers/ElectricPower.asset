@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d4f98e1ec77774b9980bb3495556ac, type: 3}
   m_Name: ElectricPower
   m_EditorClassIdentifier: 
-  <StartingDialogueLine>k__BackingField: {fileID: 0}
+  <StartingDialogueLine>k__BackingField: {fileID: 11400000, guid: 47867f327f7a4f94d94a7b963be1d17b, type: 2}
   <UsageDialogues>k__BackingField:
     lines: []
   <PowerColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}

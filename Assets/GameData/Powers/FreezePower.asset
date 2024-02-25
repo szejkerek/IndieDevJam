@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac01bde0d4676148bd5e84685665d03, type: 3}
   m_Name: FreezePower
   m_EditorClassIdentifier: 
-  <StartingDialogueLine>k__BackingField: {fileID: 0}
+  <StartingDialogueLine>k__BackingField: {fileID: 11400000, guid: 21eadce2346303849b55976a8e088f59, type: 2}
   <UsageDialogues>k__BackingField:
     lines:
     - {fileID: 11400000, guid: 77bbd257f8425374183c9f595609a16f, type: 2}

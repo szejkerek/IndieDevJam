@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc03f948c8b42514996a023d036b34e8, type: 3}
   m_Name: ReverseGravityPower
   m_EditorClassIdentifier: 
-  <StartingDialogueLine>k__BackingField: {fileID: 0}
+  <StartingDialogueLine>k__BackingField: {fileID: 11400000, guid: 99957395b5f2fbf49a56bdedf9335bfe, type: 2}
   <UsageDialogues>k__BackingField:
     lines: []
   <PowerColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}

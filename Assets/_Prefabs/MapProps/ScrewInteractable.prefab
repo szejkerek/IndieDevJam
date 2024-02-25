@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3461411861933210393}
   - component: {fileID: 2580478940110665157}
-  - component: {fileID: 4827104612785062283}
+  - component: {fileID: 910848092489331227}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -95,7 +95,7 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &4827104612785062283
+--- !u!114 &910848092489331227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,43 +140,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7d6cb94d56b48e4fbb95f49446cf3f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.749
+      value: 0.5739384
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7d6cb94d56b48e4fbb95f49446cf3f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.602
+      value: 0.39340845
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7d6cb94d56b48e4fbb95f49446cf3f8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.146
+      value: -0.005388651
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7d6cb94d56b48e4fbb95f49446cf3f8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.011561186
+      value: -0.018524969
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7d6cb94d56b48e4fbb95f49446cf3f8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.9999332
+      value: -0.6729652
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7d6cb94d56b48e4fbb95f49446cf3f8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.0049955235
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7d6cb94d56b48e4fbb95f49446cf3f8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.73942536
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7d6cb94d56b48e4fbb95f49446cf3f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -181.325
+      value: -181.852
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7d6cb94d56b48e4fbb95f49446cf3f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -95.40698
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7d6cb94d56b48e4fbb95f49446cf3f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -1.1849976
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7d6cb94d56b48e4fbb95f49446cf3f8, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -271,33 +271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlockInteractions: 0
-  onUnscrew:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GarageDoor, Assembly-CSharp
-        m_MethodName: OpenDoor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: IntroManager, __Scripts
-        m_MethodName: OnDoorOpen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  screwIndex: 1
+  progressGame: 1
 --- !u!54 &1464434251133260509
 Rigidbody:
   m_ObjectHideFlags: 0

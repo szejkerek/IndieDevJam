@@ -18,6 +18,7 @@ public class Player : Singleton<Player>
     protected override void Awake()
     {
         base.Awake();
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         theTool = GetComponentInChildren<TheTool>();
@@ -25,6 +26,8 @@ public class Player : Singleton<Player>
 
         playerCamera = GetComponentInChildren<PlayerCamera>();
         playerVision = GetComponent<PlayerVision>();
+
+        if (GameManager.Instance != null) GameManager.Instance.SetupAfterRestart();
 
         cameraHolder.parent = null;
     }

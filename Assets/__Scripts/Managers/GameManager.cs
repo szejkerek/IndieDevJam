@@ -3,9 +3,11 @@ using GordonEssentials.Types;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>   
 {
+    public Slider durabilityBar;
     [SerializeField] Sound music;
     [SerializeField] Transform startpoint;
     [SerializeField] List<InteractibleScrew> endgameScrews;
@@ -17,11 +19,14 @@ public class GameManager : Singleton<GameManager>
     public bool canRestart = false;
     public bool introDone = false;
     private int currentPowerIndex = 0;
-
+    float hpDecrement = 0;
     protected override void Awake()
     {
         base.Awake();
         possiblePowers.Shuffle();
+        durabilityBar.gameObject.SetActive(false);
+        durabilityBar.value = 1;
+        hpDecrement = 1 / (float)endgameScrews.Count;
     }
 
     private void Update()
@@ -84,14 +89,16 @@ public class GameManager : Singleton<GameManager>
     {       
         Debug.Log("Unscrew");
         solved++;
-        DialogueManager.Instance.PlayMadLine();
+        durabilityBar.value -= hpDecrement;
 
         if (endgameScrews.Count == solved)
         {
-            Debug.Log("Game ended");         
+            Debug.Log("Game ended");
+            SceneLoader.Instance.LoadScene(SceneConstants.MainMenu);
         }
         else
         {
+            DialogueManager.Instance.PlayMadLine();
             SetNewPower();
         }
     }

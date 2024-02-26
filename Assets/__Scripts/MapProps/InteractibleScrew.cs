@@ -53,7 +53,7 @@ public class InteractibleScrew : MonoBehaviour, IInteractable
         if (BlockInteractions || unscrewedOnce || !screwEnabled)
             return;
 
-        AudioManager.Instance.PlayAtPosition(transform.position, UnscrewSound);
+        AudioManager.Instance?.PlayAtPosition(transform.position, UnscrewSound);
         startedAnimation = true;
         animator.SetBool("Animate", true);
 

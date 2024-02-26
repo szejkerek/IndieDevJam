@@ -71,6 +71,7 @@ public class IntroManager : Singleton<IntroManager>
 
 
         DialogueManager.Instance.Play(unscrewHim);
+        GameManager.Instance.durabilityBar.gameObject.SetActive(true);
         yield return new WaitForSeconds(unscrewHim.Clip.length + 1f);
         GameManager.Instance.OnIntroCompleted();
 

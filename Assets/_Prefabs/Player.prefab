@@ -606,7 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HelpObject: {fileID: 4028810172470281749}
-  raycastDistance: 3
+  raycastDistance: 1.5
   rayCooldown: 0.05
 --- !u!114 &725682596880208770
 MonoBehaviour:

@@ -17,6 +17,9 @@ public class MainMenuManager : Singleton<MainMenuManager>
 
     void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         AudioManager.Instance.PlayGlobal(mainMusic, SoundType.Music);
         StartGameBtn.onClick.AddListener(() => OnButtonClick(StartGameBtn, () => StartGame()));
         QuitGameBtn.onClick.AddListener(() => OnButtonClick(QuitGameBtn, () => Application.Quit()));

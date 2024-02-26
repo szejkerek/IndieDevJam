@@ -3,20 +3,17 @@ using GordonEssentials.Types;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using UnityEditor;
 
 public class GameManager : Singleton<GameManager>   
 {
     [SerializeField] Transform startpoint;
     [SerializeField] List<InteractibleScrew> endgameScrews;
+    int solved = 0;
 
     public List<Power> possiblePowers;
-    bool canRestart = false;
     bool isReloading = false;
 
+    public bool canRestart = false;
     public bool introDone = false;
     private int currentPowerIndex = 0;
 
@@ -71,14 +68,25 @@ public class GameManager : Singleton<GameManager>
         
         FadeScreen.Instance.FadeAction(() =>
         {
-            string currentSceneName = SceneManager.GetActiveScene().name;
             DialogueManager.Instance.ClearAndStop();
-            SceneManager.LoadScene(currentSceneName);
+            Player.Instance.transform.position = startpoint.transform.position;
         });
     }
 
-    public void OnUnscrewEndgame()
+    bool GameEnded()
     {
+        return endgameScrews.Count == solved;
+    }
+
+    public void OnUnscrewEndgame()
+    {       
+        solved++;
+        if (GameEnded())
+        {
+            Debug.Log("Game ended");
+            return;
+        }
+
         Debug.Log("Unscrew");
         DialogueManager.Instance.PlayMadLine();
         SetNewPower();

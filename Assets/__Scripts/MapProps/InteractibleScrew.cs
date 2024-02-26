@@ -10,7 +10,6 @@ public class InteractibleScrew : MonoBehaviour, IInteractable
     Rigidbody rb;
     bool startedAnimation = false;
     bool unscrewedOnce = false;
-    [SerializeField] bool progressGame = false;
 
     private void Start()
     {
@@ -45,9 +44,6 @@ public class InteractibleScrew : MonoBehaviour, IInteractable
         unscrewedOnce = true;
 
         onUnscrew?.Invoke();
-
-        if (!progressGame) return;
-        GameManager.Instance.OnUnscrewEndgame();
     }
 
 }

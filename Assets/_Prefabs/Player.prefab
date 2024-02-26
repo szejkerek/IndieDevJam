@@ -628,7 +628,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 068b8b1ee6acf0543b17f22c449e024f, type: 2}
   - {fileID: 11400000, guid: 62857050e78878a49928d0ce65a06ff3, type: 2}
   - {fileID: 11400000, guid: 3d7ac074c3a68e54cae468dbc9090171, type: 2}
-  footstepCooldown: 0.2
+  footstepCooldown: 0.65
   moveSpeed: 2
   groundDrag: 5
   jumpForce: 5

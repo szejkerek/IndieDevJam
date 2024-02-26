@@ -10,9 +10,8 @@ public class MainMenuManager : Singleton<MainMenuManager>
     [SerializeField] Button StartGameBtn;
     [SerializeField] Button QuitGameBtn;
 
-    protected override void Awake()
+    void Start()
     {
-        base.Awake();
         StartGameBtn.onClick.AddListener(() => StartGame());
         QuitGameBtn.onClick.AddListener(() => Application.Quit());
     }

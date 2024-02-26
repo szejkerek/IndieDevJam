@@ -17,6 +17,7 @@ public class PushBeamPower : Power
             {
                 Vector3 dir = Player.Instance.GetLookRotation().normalized;
                 hit.gameObject.GetComponent<Rigidbody>().AddForce(dir * power);
+                PlayUseSound();
             }
         }
     }

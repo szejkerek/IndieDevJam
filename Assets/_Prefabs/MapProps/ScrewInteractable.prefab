@@ -271,8 +271,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlockInteractions: 0
-  screwIndex: 1
-  progressGame: 1
+  UnscrewSound: {fileID: 11400000, guid: 032684379f4e1ec4e9ec9d122e163e03, type: 2}
+  onUnscrew:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &1464434251133260509
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class ReverseGravityPower : Power
     public override void UsePower()
     {
         Physics.gravity *= -1;
+        PlayUseSound();
         Debug.Log("Gravity Power");
     }
 }

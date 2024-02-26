@@ -73,23 +73,25 @@ public class GameManager : Singleton<GameManager>
         });
     }
 
-    bool GameEnded()
+    void EndGame()
     {
-        return endgameScrews.Count == solved;
+        SceneLoader.Instance.LoadScene(SceneConstants.MainMenu);
     }
 
     public void OnUnscrewEndgame()
     {       
-        solved++;
-        if (GameEnded())
-        {
-            Debug.Log("Game ended");
-            return;
-        }
-
         Debug.Log("Unscrew");
+        solved++;
         DialogueManager.Instance.PlayMadLine();
-        SetNewPower();
+
+        if (endgameScrews.Count == solved)
+        {
+            Debug.Log("Game ended");         
+        }
+        else
+        {
+            SetNewPower();
+        }
     }
 
 }

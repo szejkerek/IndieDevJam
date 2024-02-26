@@ -1,9 +1,12 @@
+using GordonEssentials;
+using GordonEssentials.Types;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class InteractibleScrew : MonoBehaviour, IInteractable
 {
     public bool BlockInteractions = false;
+    public Sound UnscrewSound;
     public UnityEvent onUnscrew;
 
     Animator animator;
@@ -38,6 +41,7 @@ public class InteractibleScrew : MonoBehaviour, IInteractable
         if (BlockInteractions || unscrewedOnce)
             return;
 
+        AudioManager.Instance.PlayAtPosition(transform.position, UnscrewSound);
         startedAnimation = true;
         animator.SetBool("Animate", true);
 

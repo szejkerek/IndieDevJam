@@ -1673,8 +1673,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a3445264a884eba41be43d83dc9c2828, type: 2}
   - {fileID: 11400000, guid: 5d42934f2ded34d4b8a062f5be88cc1e, type: 2}
   - {fileID: 11400000, guid: 47e5b8ba443a4914c925dac1da76a64c, type: 2}
-  canRestart: 0
-  introDone: 0
+  canRestart: 1
+  introDone: 1
 --- !u!4 &931350521
 Transform:
   m_ObjectHideFlags: 0

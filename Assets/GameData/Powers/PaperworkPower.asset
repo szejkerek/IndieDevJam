@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PaperworkPower
   m_EditorClassIdentifier: 
   <StartingDialogueLine>k__BackingField: {fileID: 11400000, guid: 948ae89a80d586c4e91205531bb52f0c, type: 2}
-  <UsageDialogues>k__BackingField:
-    lines: []
+  <UseSound>k__BackingField:
+  - {fileID: 11400000, guid: 2db7c516795bba94a99f50ea42110604, type: 2}
+  - {fileID: 11400000, guid: 43ff0a31eae4c724cba15b6fe7cac469, type: 2}
   <PowerColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   paperworkReference: {fileID: 6505162061063448459, guid: 69e5cf0e26eadca42a8895e6d7ee50b1, type: 3}

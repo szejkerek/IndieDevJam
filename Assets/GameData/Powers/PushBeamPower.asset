@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: PushBeamPower
   m_EditorClassIdentifier: 
   <StartingDialogueLine>k__BackingField: {fileID: 11400000, guid: f31ff44437b281c46ab53ab1ea6eab4e, type: 2}
-  <UsageDialogues>k__BackingField:
-    lines:
-    - {fileID: 11400000, guid: 77bbd257f8425374183c9f595609a16f, type: 2}
+  <UseSound>k__BackingField:
+  - {fileID: 11400000, guid: 75f2cf34bf7aaf64199a68289b41efdc, type: 2}
+  - {fileID: 11400000, guid: 656d08dab08789a46850e134cdb98c6b, type: 2}
+  - {fileID: 11400000, guid: 189f5032f7883ef4cb80a303e79c5a97, type: 2}
   <PowerColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   power: 3000

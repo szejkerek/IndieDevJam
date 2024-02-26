@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ShrinkPower
   m_EditorClassIdentifier: 
   <StartingDialogueLine>k__BackingField: {fileID: 11400000, guid: 6c79c6c98215b3846900fa262848756a, type: 2}
-  <UsageDialogues>k__BackingField:
-    lines: []
+  <UseSound>k__BackingField:
+  - {fileID: 11400000, guid: 134453a9205b9f244905d1047a97df6c, type: 2}
+  - {fileID: 11400000, guid: c5cf18e8f6c76f14f89de175d138f39f, type: 2}
+  - {fileID: 11400000, guid: 140f46d0945bca04d95e960cfa366520, type: 2}
   <PowerColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}

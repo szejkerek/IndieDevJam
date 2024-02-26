@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: FreezePower
   m_EditorClassIdentifier: 
   <StartingDialogueLine>k__BackingField: {fileID: 11400000, guid: 21eadce2346303849b55976a8e088f59, type: 2}
-  <UsageDialogues>k__BackingField:
-    lines:
-    - {fileID: 11400000, guid: 77bbd257f8425374183c9f595609a16f, type: 2}
+  <UseSound>k__BackingField:
+  - {fileID: 11400000, guid: d8e728c60541e8141891d5b5bcdf030e, type: 2}
+  - {fileID: 11400000, guid: 01516404345ed9847a5b9b97cfd270f1, type: 2}
+  - {fileID: 11400000, guid: 6c677c9153c888e408b5f603d26bd27c, type: 2}
   <PowerColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}

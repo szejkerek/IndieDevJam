@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ElectricPower
   m_EditorClassIdentifier: 
   <StartingDialogueLine>k__BackingField: {fileID: 11400000, guid: 47867f327f7a4f94d94a7b963be1d17b, type: 2}
-  <UsageDialogues>k__BackingField:
-    lines: []
+  <UseSound>k__BackingField:
+  - {fileID: 11400000, guid: ea82ce85eeec75e46854ab79217c3936, type: 2}
+  - {fileID: 11400000, guid: 05f8725e1ba71dd43a44b5128666aafd, type: 2}
+  - {fileID: 11400000, guid: 36a00e180637bc548ac5186b1a6246c2, type: 2}
   <PowerColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}

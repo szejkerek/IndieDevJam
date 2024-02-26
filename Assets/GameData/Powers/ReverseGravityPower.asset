@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ReverseGravityPower
   m_EditorClassIdentifier: 
   <StartingDialogueLine>k__BackingField: {fileID: 11400000, guid: 99957395b5f2fbf49a56bdedf9335bfe, type: 2}
-  <UsageDialogues>k__BackingField:
-    lines: []
+  <UseSound>k__BackingField:
+  - {fileID: 11400000, guid: ced844a0380f42a48977edfe7f9b46bd, type: 2}
+  - {fileID: 11400000, guid: f343903bd4b12ff4bb0b307e9eb95d25, type: 2}
+  - {fileID: 11400000, guid: a03d15db37acf8a4fa582c3edbbb8983, type: 2}
   <PowerColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}

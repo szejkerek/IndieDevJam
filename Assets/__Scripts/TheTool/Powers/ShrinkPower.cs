@@ -12,13 +12,12 @@ public class ShrinkPower : Power
         if(!shrinked)
         {
             Player.Instance.gameObject.transform.localScale = Vector3.one * 0.1f;
-            Player.Instance.GetComponent<Rigidbody>().mass = 0.001f;
+            PlayUseSound();
             shrinked = true;
         }
         else
         {
             Player.Instance.gameObject.transform.localScale = Vector3.one;
-            Player.Instance.GetComponent<Rigidbody>().mass = 1f;
             shrinked = false;
         }
         

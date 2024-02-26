@@ -15,6 +15,7 @@ public class ElectricPower : Power
             {
                 Debug.Log(hitCollider.gameObject.name + " charged");
                 hitCollider.gameObject.GetComponent<IChargable>().OnCharge();
+                PlayUseSound();
             }
         }
         Debug.Log("Electric Power");

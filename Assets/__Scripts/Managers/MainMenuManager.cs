@@ -9,16 +9,15 @@ using GordonEssentials.Types;
 
 public class MainMenuManager : Singleton<MainMenuManager>
 {
+    [SerializeField] Sound mainMusic;
     [SerializeField] Button StartGameBtn;
     [SerializeField] Button QuitGameBtn;
 
     [SerializeField] Sound clickSound; // Add your click sound here
-    private AudioSource audioSource;
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-
+        AudioManager.Instance.PlayGlobal(mainMusic, SoundType.Music);
         StartGameBtn.onClick.AddListener(() => OnButtonClick(StartGameBtn, () => StartGame()));
         QuitGameBtn.onClick.AddListener(() => OnButtonClick(QuitGameBtn, () => Application.Quit()));
     }

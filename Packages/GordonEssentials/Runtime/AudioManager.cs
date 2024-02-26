@@ -12,12 +12,11 @@ namespace GordonEssentials
         [SerializeField] AudioMixerGroup sfxMixer;
         [SerializeField] AudioMixerGroup musicMixer;
 
-        AudioSource musicSource;
+        [SerializeField] AudioSource musicSource;
 
         protected override void Awake()
         {
             base.Awake();
-            musicSource = FindObjectOfType<AudioSource>();
             SetMixer(musicSource, SoundType.Music);
         }
 
@@ -69,12 +68,12 @@ namespace GordonEssentials
             source.Play();
         }
 
+        
         public void PlayGlobal(Sound sound, SoundType type = SoundType.SFX)
         {
             if (type == SoundType.Music)
             {
-                musicSource.Stop();
-                StartCoroutine(FadeInMusic(sound, 1f));
+                Play(musicSource, sound, SoundType.Music);
             }
 
             PlayOnTarget(gameObject, sound);

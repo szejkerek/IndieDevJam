@@ -1574,7 +1574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &406625492
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3026,6 +3026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac050e0686b4d4141ad7f59b2d2ec391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  music: {fileID: 11400000, guid: b68dcc6423cd4b84eae696ccb27b8110, type: 2}
   startpoint: {fileID: 863584501}
   endgameScrews:
   - {fileID: 497613137}
@@ -3039,8 +3040,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a3445264a884eba41be43d83dc9c2828, type: 2}
   - {fileID: 11400000, guid: 5d42934f2ded34d4b8a062f5be88cc1e, type: 2}
   - {fileID: 11400000, guid: 47e5b8ba443a4914c925dac1da76a64c, type: 2}
-  canRestart: 1
-  introDone: 1
+  canRestart: 0
+  introDone: 0
 --- !u!4 &931350521
 Transform:
   m_ObjectHideFlags: 0
@@ -3253,7 +3254,7 @@ RectTransform:
   m_Father: {fileID: 1130283177}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.677, y: 1}
   m_AnchoredPosition: {x: -2.5, y: 0}
   m_SizeDelta: {x: 5, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4328,6 +4329,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Renderer
       objectReference: {fileID: 0}
+    - target: {fileID: 1573434621070918751, guid: 5b940a43b7217394fb79f9dc896a6a0f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9156596960941506196, guid: 5b940a43b7217394fb79f9dc896a6a0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.314295
@@ -4661,6 +4666,7 @@ MonoBehaviour:
   toolItem: {fileID: 2119509735}
   screw: {fileID: 2057921963}
   lightObject: {fileID: 274818555}
+  introMusic: {fileID: 11400000, guid: 70c554fd2245a1d41a77be4b081377c0, type: 2}
   lightOnSound: {fileID: 11400000, guid: b01a1b424abcc1f47b84ef629b08d2ec, type: 2}
   inSuchPlace: {fileID: 11400000, guid: 54cd387f3b4efdd41b174bfb6bc5d33d, type: 2}
   speciesDoomed: {fileID: 11400000, guid: ea0af33e2fe34c148b85bc501ed26c99, type: 2}
@@ -4820,6 +4826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlockInteractions: 0
+  UnscrewSound: {fileID: 0}
   onUnscrew:
     m_PersistentCalls:
       m_Calls:

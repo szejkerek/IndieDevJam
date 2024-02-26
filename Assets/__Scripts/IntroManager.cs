@@ -9,6 +9,7 @@ public class IntroManager : Singleton<IntroManager>
     [SerializeField] TheToolItem toolItem;
     [SerializeField] InteractibleScrew screw;
     [SerializeField] GameObject lightObject;
+    [SerializeField] Sound introMusic;
     [SerializeField] Sound lightOnSound;
     [Space]
     [SerializeField] DialogueLineSO inSuchPlace;
@@ -27,10 +28,11 @@ public class IntroManager : Singleton<IntroManager>
 
     private void Start()
     {
+        AudioManager.Instance.PlayGlobal(introMusic, SoundType.Music);
         lightObject.gameObject.SetActive(false);
-        //toolItem.BlockInteractions = true;
-        //screw.BlockInteractions = true;
-        //StartCoroutine(IntroSequence());
+        toolItem.BlockInteractions = true;
+        screw.BlockInteractions = true;
+        StartCoroutine(IntroSequence());
     }
 
     private IEnumerator IntroSequence()

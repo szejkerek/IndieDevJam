@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Electro
   m_EditorClassIdentifier: 
   <Clip>k__BackingField: {fileID: 8300000, guid: 1993459754885984fa4df6966a8e6911, type: 3}
-  volume: 1
+  volume: 0.161
   pitchVariation: 0
   loop: 0
   <Settings3D>k__BackingField:

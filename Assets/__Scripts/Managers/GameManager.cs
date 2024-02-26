@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>   
 {
+    [SerializeField] Sound music;
     [SerializeField] Transform startpoint;
     [SerializeField] List<InteractibleScrew> endgameScrews;
     int solved = 0;
@@ -50,6 +51,7 @@ public class GameManager : Singleton<GameManager>
     public void OnIntroCompleted()
     {
         Debug.Log("End of intro");
+        AudioManager.Instance.PlayGlobal(music, SoundType.Music);
         InvokeRepeating(nameof(PlayDialogue), 15, 20);
         SetNewPower();
         canRestart = true;

@@ -35,9 +35,9 @@ public class IntroManager : Singleton<IntroManager>
 
     private IEnumerator IntroSequence()
     {
-        /*yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2f);
         lightObject.SetActive(true);
-        //AudioManager.Instance.PlayAtPosition(light.transform.position, lightOnSound);
+        AudioManager.Instance.PlayAtPosition(lightObject.transform.position, lightOnSound);
         yield return new WaitForSeconds(1f);
 
         DialogueManager.Instance.Play(inSuchPlace);
@@ -56,7 +56,7 @@ public class IntroManager : Singleton<IntroManager>
 
         while (!doorOpen)
             yield return null;
-        */
+
 
         //===========================TEMPORARY==============================
         toolItem.BlockInteractions = false;
@@ -68,9 +68,8 @@ public class IntroManager : Singleton<IntroManager>
 
 
 
-       // DialogueManager.Instance.Play(unscrewHim);
-        GameManager.Instance.durability.gameObject.SetActive(true);
-        //yield return new WaitForSeconds(unscrewHim.Clip.length + 1f);
+        DialogueManager.Instance.Play(unscrewHim);
+        yield return new WaitForSeconds(unscrewHim.Clip.length + 1f);
         GameManager.Instance.OnIntroCompleted();
 
         yield return null;

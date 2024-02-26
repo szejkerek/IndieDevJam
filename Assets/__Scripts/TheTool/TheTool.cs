@@ -7,50 +7,16 @@ using UnityEngine;
 public class TheTool : MonoBehaviour
 {
     public static Action OnSpawnedInHands;
-    public static Action OnDeath;
 
     [SerializeField] private float cooldown;
     private float lastUseTime;
 
-    public List<Power> possiblePowers;
-    int maxHealth;
-    int currentHealth;
-    [SerializeField] private Power currentPower; 
+    Power currentPower; 
 
      void Awake()
      {
-        maxHealth = possiblePowers.Count;
-        currentHealth = maxHealth;
         OnSpawnedInHands?.Invoke();        
      }
-
-    public void InitializePowers()
-    {
-        maxHealth = possiblePowers.Count;
-        currentHealth = maxHealth;
-        GetNextSkill();
-    }
-
-    public void TakeDamage()
-    {
-        currentHealth--;
-        if(currentHealth <= 0 ) {
-            OnDeath?.Invoke();
-        }
-    }
-
-    public void GetNextSkill()
-    {
-        if (possiblePowers.Count <= 0)
-        {
-            Debug.Log("No more powers");
-            return;
-        }
-
-        currentPower = possiblePowers[0];
-        //possiblePowers.RemoveAt(0);
-        //GameManager.Instance.possiblePowers.Remove(currentPower);
-    }
 
     public void PlayStartingDialogue()
     {
@@ -93,12 +59,17 @@ public class TheTool : MonoBehaviour
         Debug.Log("Default Tool Interaction");
     }
 
+    public void SetNewPower(Power power)
+    {
+        currentPower = power;
+        PlayStartingDialogue();
+    }
+
     private void UseCurrentPower()
     {
         if (currentPower != null)
         {
             currentPower.UsePower();
-            //DialogueManager.Instance.Play(currentPower.UsageDialogues.TakeElement());
         }
         else
         {

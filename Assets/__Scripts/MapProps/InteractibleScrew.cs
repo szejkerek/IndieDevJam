@@ -5,7 +5,6 @@ public class InteractibleScrew : MonoBehaviour, IInteractable
 {
     public bool BlockInteractions = false;
     public UnityEvent onUnscrew;
-    public int screwIndex;
 
     Animator animator;
     Rigidbody rb;
@@ -47,15 +46,8 @@ public class InteractibleScrew : MonoBehaviour, IInteractable
 
         onUnscrew?.Invoke();
 
-
-        Debug.Log(screwIndex + " unscrewed!");
-
-        GameManager.Instance.unscrewedScrews.Add(screwIndex);
-
         if (!progressGame) return;
         GameManager.Instance.OnUnscrewEndgame();
-
-        //GameManager.Instance.AddObjectToTrash(gameObject);
     }
 
 }

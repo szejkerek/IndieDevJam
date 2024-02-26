@@ -12,14 +12,10 @@ public class DialogueManager : Singleton<DialogueManager>
     private Queue<DialogueLineSO> dialogQueue;
 
     public bool dialogueIsBlocked = false;
-    public bool madLinePlayed = false;
 
     private void Start()
     {
         base.Awake();
-        if (FindObjectsOfType<DialogueManager>().Length > 1) Destroy(gameObject);
-        DontDestroyOnLoad(gameObject);
-
         dialogQueue = new Queue<DialogueLineSO>();
         dialogueText.text = string.Empty;
     }
@@ -71,8 +67,6 @@ public class DialogueManager : Singleton<DialogueManager>
 
             yield return new WaitForSeconds(0.5f);          
         }
-
-        if (dialogueToPlay.madLine) madLinePlayed = true;
 
         dialogueIsBlocked = false;
 

@@ -27,14 +27,7 @@ public class Player : Singleton<Player>
         playerCamera = GetComponentInChildren<PlayerCamera>();
         playerVision = GetComponent<PlayerVision>();
 
-        
-
         cameraHolder.parent = null;
-    }
-
-    private void Start()
-    {
-        GameManager.Instance.SetupAfterRestart();
     }
 
     public Vector3 GetLookRotation()

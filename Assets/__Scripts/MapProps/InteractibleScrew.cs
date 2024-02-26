@@ -13,12 +13,24 @@ public class InteractibleScrew : MonoBehaviour, IInteractable
     Rigidbody rb;
     bool startedAnimation = false;
     bool unscrewedOnce = false;
+    [SerializeField] bool screwEnabled = true;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
     }
+
+    public void EnableScrew()
+    {
+        screwEnabled = true;
+    }
+
+    public void DisableScrew()
+    {
+        screwEnabled = false;
+    }
+
 
     private void Update()
     {
@@ -38,7 +50,7 @@ public class InteractibleScrew : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
-        if (BlockInteractions || unscrewedOnce)
+        if (BlockInteractions || unscrewedOnce || !screwEnabled)
             return;
 
         AudioManager.Instance.PlayAtPosition(transform.position, UnscrewSound);

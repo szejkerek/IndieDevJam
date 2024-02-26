@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PressurePlate : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class PressurePlate : MonoBehaviour
     float massTotal = 0, massRequired = 1;
     [SerializeField]
     List<GameObject> chargableObjects;
+    public UnityEvent onPlateDown;
+    public UnityEvent onPlateUp;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,7 +20,9 @@ public class PressurePlate : MonoBehaviour
         {
             if (massTotal >= massRequired && g.GetComponent<IChargable>() != null)
             {
+                Debug.Log("Stepped on");
                 g.GetComponent<IChargable>().OnCharge(true);
+                onPlateDown?.Invoke();
             }
         }
     }
@@ -29,6 +35,7 @@ public class PressurePlate : MonoBehaviour
             if (massTotal < massRequired && g.GetComponent<IChargable>() != null)
             {
                 g.GetComponent<IChargable>().OnDischarge(true);
+                onPlateUp?.Invoke();
             }
         }
     }

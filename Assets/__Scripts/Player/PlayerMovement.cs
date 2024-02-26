@@ -1,3 +1,6 @@
+using GordonEssentials;
+using GordonEssentials.Types;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Build;
@@ -5,6 +8,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Sound")]
+    [SerializeField] List<Sound> footsetps;
+    [SerializeField] float footstepCooldown;
+    float lastFootstepTime = 0;
+
+
     [Header("Movement")]
     [SerializeField] float moveSpeed;    
     [SerializeField] float groundDrag;
@@ -38,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         grounded = groundCollisions >= 1;
 
         MyInput();
+        PlayFootsetp();
         SpeedControl();
 
         if (grounded)
@@ -67,12 +77,27 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         // on ground
-        if (grounded)
+        if (grounded)   
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
 
         // in air
         else if (!grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+    }
+
+    private void PlayFootsetp()
+    {
+        if (horizontalInput == 0 && verticalInput == 0)
+            return;
+
+        if (!grounded)
+            return;
+
+        if (Time.time - lastFootstepTime < footstepCooldown)
+            return;
+
+        AudioManager.Instance.PlayAtPosition(transform.position, footsetps.SelectRandomElement());
+        lastFootstepTime = Time.time;
     }
 
     private void MyInput()

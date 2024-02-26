@@ -620,6 +620,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df92b9156ceb8154e8a75af53617ad4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  footsetps:
+  - {fileID: 11400000, guid: 7dbc3233301d6144c91efeddbd85ad5f, type: 2}
+  - {fileID: 11400000, guid: b0a2365a94178964b94ceef9c5841d32, type: 2}
+  - {fileID: 11400000, guid: 03a2e2ceb31fb534f88fd0c8983ebf73, type: 2}
+  - {fileID: 11400000, guid: df11bfc3825c9864094d72541938f20d, type: 2}
+  - {fileID: 11400000, guid: 068b8b1ee6acf0543b17f22c449e024f, type: 2}
+  - {fileID: 11400000, guid: 62857050e78878a49928d0ce65a06ff3, type: 2}
+  - {fileID: 11400000, guid: 3d7ac074c3a68e54cae468dbc9090171, type: 2}
+  footstepCooldown: 0.2
   moveSpeed: 2
   groundDrag: 5
   jumpForce: 5

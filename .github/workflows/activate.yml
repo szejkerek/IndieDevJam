@@ -1,2 +1,17 @@
-- name: Activate
-  uses: game-ci/unity-activate@v2.0.0
+name: Activate Unity
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  activate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Activate Unity
+        uses: game-ci/unity-activate@v2.0.0

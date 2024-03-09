@@ -28,7 +28,7 @@ public class IntroManager : Singleton<IntroManager>
 
     private void Start()
     {
-        AudioManager.Instance.PlayGlobal(introMusic, SoundType.Music);
+        AudioManager.Instance.PlayGlobal(introMusic);
         lightObject.gameObject.SetActive(false);
         toolItem.BlockInteractions = true;
         screw.BlockInteractions = true;

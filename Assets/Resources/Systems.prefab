@@ -422,11 +422,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2093084681060738268}
-  - component: {fileID: 333891357326057497}
   - component: {fileID: 6774955778503621754}
   - component: {fileID: 3982353219675830590}
   - component: {fileID: 4557955558784558804}
   - component: {fileID: -6072853693874300642}
+  - component: {fileID: -3446965445816483854}
   m_Layer: 0
   m_Name: Systems
   m_TagString: Untagged
@@ -451,22 +451,6 @@ Transform:
   - {fileID: 5891702678166776849}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &333891357326057497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6988714555697189524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a052d1df9ee54048bfa61f381091b80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  masterMixer: {fileID: 24300002, guid: 56940301e060c3d488897cf013dce047, type: 2}
-  sfxMixer: {fileID: 0}
-  musicMixer: {fileID: 0}
-  musicSource: {fileID: -6072853693874300642}
 --- !u!114 &6774955778503621754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,7 +477,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeOnStart: 0
-  target: {fileID: 2356245995975444968}
 --- !u!114 &4557955558784558804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,3 +611,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-3446965445816483854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6988714555697189524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a052d1df9ee54048bfa61f381091b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterMixer: {fileID: 0}
+  sfxMixer: {fileID: 0}
+  musicMixer: {fileID: 0}

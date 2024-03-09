@@ -20,7 +20,7 @@ public class MainMenuManager : Singleton<MainMenuManager>
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
-        AudioManager.Instance.PlayGlobal(mainMusic, SoundType.Music);
+        AudioManager.Instance.PlayGlobal(mainMusic);
         StartGameBtn.onClick.AddListener(() => OnButtonClick(StartGameBtn, () => StartGame()));
         QuitGameBtn.onClick.AddListener(() => OnButtonClick(QuitGameBtn, () => Application.Quit()));
     }

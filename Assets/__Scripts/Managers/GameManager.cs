@@ -56,7 +56,7 @@ public class GameManager : Singleton<GameManager>
     public void OnIntroCompleted()
     {
         Debug.Log("End of intro");
-        AudioManager.Instance.PlayGlobal(music, SoundType.Music);
+        AudioManager.Instance.PlayGlobal(music);
         InvokeRepeating(nameof(PlayDialogue), 15, 20);
         SetNewPower();
         canRestart = true;

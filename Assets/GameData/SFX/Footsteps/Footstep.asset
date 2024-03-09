@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 482a186c794e41a49ab5e2f982e41164, type: 3}
+  m_Script: {fileID: 11500000, guid: 93b2aaed3e8a3cb40862b855265313e3, type: 3}
   m_Name: Footstep
   m_EditorClassIdentifier: 
   <Clip>k__BackingField: {fileID: 8300000, guid: 0e741f4fd6cb55441956a2eb7f56b667, type: 3}
+  soundType: 0
   volume: 0.2
   pitchVariation: 0.1
   loop: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IntroMusic
   m_EditorClassIdentifier: 
   <Clip>k__BackingField: {fileID: 0}
-  soundType: 0
+  audioSettings: {fileID: 0}
   volume: 1
   pitchVariation: 0
   loop: 0

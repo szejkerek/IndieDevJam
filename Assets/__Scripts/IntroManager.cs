@@ -39,7 +39,7 @@ public class IntroManager : Singleton<IntroManager>
     {
         yield return new WaitForSeconds(2f);
         lightObject.SetActive(true);
-        AudioManager.Instance.PlayAtPosition(lightObject.transform.position, lightOnSound);
+        //AudioManager.Instance.PlayAtPosition(lightObject.transform.position, lightOnSound);
         yield return new WaitForSeconds(1f);
 
         DialogueManager.Instance.Play(inSuchPlace);

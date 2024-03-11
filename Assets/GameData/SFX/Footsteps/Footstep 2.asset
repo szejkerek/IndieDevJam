@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Footstep 2
   m_EditorClassIdentifier: 
   <Clip>k__BackingField: {fileID: 8300000, guid: d3f93139651dd934d9a8e62083bfe47c, type: 3}
-  soundType: 0
+  audioSettings: {fileID: 11400000, guid: 7a9aa6585dcce334e88d45ff84d592d1, type: 2}
   volume: 0.2
   pitchVariation: 0.1
   loop: 0
